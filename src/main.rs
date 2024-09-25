@@ -17,13 +17,22 @@ impl Temperature {
             scale: Scale::Celsius,
         }
     }
-
     fn to_celsius(&self) -> f32 {
-        todo!();
+        match self.scale {
+            Scale::Celsius => self.degrees,
+            Scale::Fahrenheit => {
+                (self.degrees - 32.0) * 5.0 / 9.0 // Correct conversion formula
+            }
+        }
     }
 
     fn to_fahrenheit(&self) -> f32 {
-        todo!();
+        match self.scale {
+            Scale::Fahrenheit => self.degrees,
+            Scale::Celsius => {
+                self.degrees * 9.0 / 5.0 + 32.0 // Correct conversion formula
+            }
+        }
     }
 }
 
