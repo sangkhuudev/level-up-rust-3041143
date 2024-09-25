@@ -1,5 +1,11 @@
 fn sum_with_missing(numbers: Vec<Option<i32>>) -> i32 {
-    todo!();
+    numbers.iter().fold(0, |total, num| {
+        match num {
+            Some(val) => total + val,
+            None => total
+        }
+    })
+
 }
 
 fn main() {
